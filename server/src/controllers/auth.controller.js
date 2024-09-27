@@ -24,6 +24,8 @@ export const signInCtrl = async (req, res) => {
 export const signUpCtrl = async (req, res) => {
   try {
     // ! Completar la función signUpCtrl
+    const user = await createUser(req.body);
+    return user;
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
