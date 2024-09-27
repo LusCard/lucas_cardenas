@@ -42,7 +42,9 @@ export const signOutCtrl = (_req, res) => {
 
 export const getMeCtrl = (req, res) => {
   try {
+    const user = getUserByCredentials(req.body);
     res.status(200).json(req.user);
+    return user;
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
